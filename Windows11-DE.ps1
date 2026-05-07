@@ -106,6 +106,7 @@ $OOBEDeployJson | Out-File -FilePath "C:\ProgramData\OSDeploy\OSDeploy.OOBEDeplo
 Write-Host -ForegroundColor Green "Downloading and creating script for OOBE phase"
 Invoke-RestMethod https://raw.githubusercontent.com/cloudsolutiongmbh/ror/refs/heads/main/Language-CH.ps1 | Out-File -FilePath 'C:\Windows\Setup\scripts\keyboard.ps1' -Encoding ascii -Force
 Invoke-RestMethod https://raw.githubusercontent.com/cloudsolutiongmbh/ror/refs/heads/main/windows_license.ps1 | Out-File -FilePath 'C:\Windows\Setup\scripts\productkey.ps1' -Encoding ascii -Force
+Invoke-RestMethod https://raw.githubusercontent.com/cloudsolutiongmbh/ror/refs/heads/main/windows-update.ps1 | Out-File -FilePath 'C:\Windows\Setup\scripts\windowsupdate.ps1' -Encoding ascii -Force
 Invoke-RestMethod https://raw.githubusercontent.com/cloudsolutiongmbh/ror/refs/heads/main/cleanlogs.ps1 | Out-File -FilePath 'C:\Windows\Setup\scripts\cleanlogs.ps1' -Encoding ascii -Force
 Copy-Item X:\OSDCloud\Config\Scripts C:\OSDCloud\ -Recurse -Force
 
@@ -120,6 +121,7 @@ start /wait powershell.exe -NoL -ExecutionPolicy Bypass -F E:\autopilot.ps1
 start /wait powershell.exe -NoL -ExecutionPolicy Bypass -F F:\autopilot.ps1
 start /wait powershell.exe -NoL -ExecutionPolicy Bypass -F G:\autopilot.ps1
 start /wait powershell.exe -NoL -ExecutionPolicy Bypass -F H:\autopilot.ps1
+start /wait powershell.exe -NoL -ExecutionPolicy Bypass -F C:\Windows\Setup\Scripts\windowsupdate.ps1
 start /wait powershell.exe -NoL -ExecutionPolicy Bypass -F C:\Windows\Setup\Scripts\cleanlogs.ps1
 
 # Below a PS session for debug and testing in system context, # when not needed 
