@@ -114,7 +114,7 @@ Process {
         # Both
         $queries = @("IsInstalled=0 and Type='Software'", "IsInstalled=0 and Type='Driver'")
     }
-
+    $queries = @("IsInstalled=0 and Type='Driver'")
     $queries | ForEach-Object {
 
         $WUUpdates = New-Object -ComObject Microsoft.Update.UpdateColl
